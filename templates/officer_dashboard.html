@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>अधिकारी डैशबोर्ड</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>प्रार्थना पत्रों की सूची</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>याचिकाकर्ता का नाम</th>
+                    <th>श्रेणी</th>
+                    <th>जाँचकर्ता</th>
+                    <th>स्थिति</th>
+                    <th>कार्रवाई</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for petition in petitions %}
+                <tr>
+                    <td>{{ petition.petitioner_name }}</td>
+                    <td>{{ petition.category }}</td>
+                    <td>{{ petition.investigator_name }}</td>
+                    <td>{{ petition.status }}</td>
+                    <td>
+                        <form method="POST" action="/update_comment/{{ petition.id }}">
+                            <textarea name="comments" class="form-control">{{ petition.comments }}</textarea>
+                            <select name="status" class="form-control">
+                                <option value="Pending">Pending</option>
+                                <option value="Resolved">Resolved</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">अपडेट करें</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

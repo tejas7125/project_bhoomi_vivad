@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>भूमि विवाद निस्तारण</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card w-50 mx-auto">
+            <div class="card-header bg-primary text-white">
+                <h4>भूमि विवाद निस्तारण</h4>
+            </div>
+            <div class="card-body">
+                <form action="/authenticate" method="post">
+                    <div class="form-group">
+                        <label for="role">रोल चुनें:</label>
+                        <select name="role" class="form-control" required>
+                            <option value="thana">थाना स्तर</option>
+                            <option value="officer">अधिकारी स्तर</option>
+                            <option value="admin">एडमिन</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">यूज़रनेम:</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">पासवर्ड:</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">लॉगिन</button>
+                </form>
+                {% if error %}
+                    <div class="alert alert-danger mt-3">{{ error }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

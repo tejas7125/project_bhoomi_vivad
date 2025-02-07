@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>थाना डैशबोर्ड</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>नया प्रार्थना पत्र दर्ज करें</h2>
+        <form method="POST" action="/submit_petition">
+            <div class="form-group">
+                <label>याचिकाकर्ता का नाम:</label>
+                <input type="text" name="petitioner_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>पता:</label>
+                <input type="text" name="address" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>विवाद का विवरण:</label>
+                <textarea name="dispute_details" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>श्रेणी:</label>
+                <select name="category" class="form-control">
+                    <option value="A">श्रेणी A (10 दिन)</option>
+                    <option value="B">श्रेणी B (7 दिन)</option>
+                    <option value="C">श्रेणी C (3 दिन)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>जाँचकर्ता का नाम:</label>
+                <input type="text" name="investigator_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>जाँचकर्ता का मोबाइल नंबर:</label>
+                <input type="text" name="investigator_mobile" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">सबमिट करें</button>
+        </form>
+    </div>
+</body>
+</html>
